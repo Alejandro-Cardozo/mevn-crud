@@ -34,6 +34,8 @@ app.use(express.urlencoded({ extended: true }));
 //   res.send("Hello World!");
 // });
 
+app.use("/api", require("./routes/note"));
+
 // Middleware for Vue.js router history mode
 const history = require("connect-history-api-fallback");
 app.use(history());
