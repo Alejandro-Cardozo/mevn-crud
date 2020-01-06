@@ -5,6 +5,23 @@ import path from "path";
 
 const app = express();
 
+// DB connection
+const mongoose = require("mongoose");
+const uri = "mongodb://localhost:27017/mevnDB";
+const options = {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true
+};
+mongoose.connect(uri, options).then(
+  () => {
+    console.log("DB connected");
+  },
+  err => {
+    err;
+  }
+);
+
 // Middleware
 app.use(morgan("tiny"));
 app.use(cors());
